@@ -15,28 +15,7 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__))) # BASE_DIR = os.path.dirname(os.path.dirname(__file__))
-'''
-import os.path 
-from os import environ
-debug = not environ.get("APP_NAME", "") 
-if debug:
-#LOCAL 本地调试用，便于导出数据库,根据本地MYSQL数据库填写下面参数
-    MYSQL_DB = 'BookDB' 
-    MYSQL_USER = 'root' 
-    MYSQL_PASS = 'sjf0528' 
-    MYSQL_HOST_M = '127.0.0.1' 
-    MYSQL_HOST_S = '127.0.0.1' 
-    MYSQL_PORT = '3306' 
-else: 
-#SAE 
-    import sae.const 
-    MYSQL_DB = sae.const.MYSQL_DB 
-    MYSQL_USER = sae.const.MYSQL_USER 
-    MYSQL_PASS = sae.const.MYSQL_PASS 
-    MYSQL_HOST_M = sae.const.MYSQL_HOST 
-    MYSQL_HOST_S = sae.const.MYSQL_HOST_S 
-    MYSQL_PORT = sae.const.MYSQL_PORT
-'''
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
 
@@ -64,7 +43,7 @@ INSTALLED_APPS = (
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    #'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -102,37 +81,13 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-'''
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'BookDB',
-        'USER':'root',
-        'PASSWORD':'sjf0528',
-        'HOST':'',
-        'PORT':'',
-    }
-}
-'''
-'''
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql', 
-        'NAME': MYSQL_DB, 
-        'USER': MYSQL_USER, 
-        'PASSWORD': MYSQL_PASS, 
-        'HOST': MYSQL_HOST_M, 
-        'PORT': MYSQL_PORT, 
-    }
-}
 
-'''
 
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'zh-hans'
 
 TIME_ZONE = 'UTC'
 
