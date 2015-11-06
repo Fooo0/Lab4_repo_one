@@ -8,6 +8,7 @@ def Option(request):
 
 def Addbook(request):
     error = []
+    authors = Author.objects.all()
     if request.method == 'POST':
         bf = Form_Book_new(request.POST)
         if bf.is_valid():
@@ -32,6 +33,7 @@ def Addbook(request):
 
 def Updatebook(request, book_pk):
     error = []
+    authors = Author.objects.all()
     book = Book.objects.filter(ISBN__exact = book_pk)[0]
     if request.method == 'POST':
         bf = Form_Book_update(request.POST, instance = book)
